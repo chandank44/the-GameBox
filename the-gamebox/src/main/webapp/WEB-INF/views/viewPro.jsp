@@ -11,12 +11,12 @@
 <style>
 #table {margin-top:60px;}
 .card {    
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 8px 4px rgba(0,0,0,0.1);
     transition: 0.3s;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 16px 8px rgba(0,0,0,0.1);
 }
 
 .container {
@@ -44,12 +44,21 @@
 		<p style="text-align:center;">Price: <span class="fa fa-inr"></span> ${c.price}</p>
 		
 		<div>
+			
 			<div class="row">
+			<c:if test="${pageContext.request.userPrincipal.name == 'aladin'}">
   				<div class="col-xs-6">
-  				<a class="btn btn-xs btn-success center-block" href="editproduct/${c.id}" style="color:ghostwhite;"><span class="glyphicon glyphicon-pencil"></span> Edit</a></div>
+  				<a class="btn btn-sm btn-success center-block" href="editproduct/${c.id}" style="color:ghostwhite;"><span class="glyphicon glyphicon-pencil"></span> Edit</a></div>
   				<div class="col-xs-6">
-  				<a class="btn btn-xs btn-danger center-block" data-toggle="modal" href="#myModal" style="color:ghostwhite;"><span class="glyphicon glyphicon-trash"></span> Delete</a></div>
+  				<a class="btn btn-sm btn-danger center-block" data-toggle="modal" href="#myModal" style="color:ghostwhite;"><span class="glyphicon glyphicon-trash"></span> Delete</a></div>
+  			</c:if>
+  			<c:if test="${pageContext.request.userPrincipal.name != 'aladin'}">
+  				<div class="col-xs-12">	
+  				<a class="btn btn-sm btn-primary center-block" href="#" style="color:ghostwhite;"><span class="fa fa-shopping-cart"></span> Add to Cart</a>
+  			</c:if>	
+  				</div>
   			</div>
+  			
   				<!-- Modal -->
 				<div id="myModal" class="modal fade">
   					<div class="modal-dialog">

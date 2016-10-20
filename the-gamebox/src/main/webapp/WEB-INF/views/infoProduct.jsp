@@ -14,10 +14,11 @@
 </style>
 </head>
 <body>
+    
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Portfolio Item Heading -->
+        <!-- Game Heading -->
         <div class="row" id="info">
             <div class="col-lg-12">
                 <h1 class="page-header">${info.proname}
@@ -25,9 +26,9 @@
                 </h1>
             </div>
         </div>
-        <!-- /.row -->
+        <!-- end of heading -->
 
-        <!-- Portfolio Item Row -->
+        <!-- Game contents Row -->
         <div class="row">
 
             <div class="col-md-8">
@@ -40,10 +41,10 @@
             </div>
 
         </div>
-        <!-- /.row -->
+        <!-- end of contents row -->
 
-        <!-- Related Projects Row -->
-        <div class="row" style="vertical-align: middle;">
+        <!-- Game details Row -->
+        <div class="row" style="vertical-align: middle !important;">
 
             <div class="col-lg-12">
                 <h3 class="page-header">Details</h3>
@@ -66,11 +67,11 @@
             </div>
 
         </div>
-        <!-- /.row -->
+        <!-- end of deatils row -->
 
         <hr>
-    </div>
-    <!-- /.container -->
+    </div> <!-- end of container -->
+    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

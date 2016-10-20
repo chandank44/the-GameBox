@@ -10,31 +10,47 @@
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body>
-<div class="container">
 
-            <h2>Login with Username and Password</h2>
+<!-- Login Form -->
+
+<div class="container" id="sign">
+	<div class="page-header text-primary">
+		<h1>Login</h1>
+	</div>
 
             <c:if test="${not empty msg}">
                 <div class="msg">${msg}</div>
             </c:if>
 
-            <form name="loginForm" action="<c:url value="/j_spring_security_check" />" method="post">
+            <form name="loginForm" class="form-horizontal" action="<c:url value="/j_spring_security_check" />" method="post">
+                
                 <c:if test="${not empty error}">
                     <div class="error" style="color: #ff0000;">${error}</div>
                 </c:if>
+                
                 <div class="form-group">
-                    <label for="username">User: </label>
+                    <label class="control-label col-sm-2" for="username">User: </label>
+                    <div class="col-sm-10">
                     <input type="text" id="username" name="j_username" class="form-control" />
+                    </div>
                 </div>
+                
                 <div class="form-group">
-                    <label for="password">Password:</label>
+                    <label class="control-label col-sm-2" for="password">Password:</label>
+                    <div class="col-sm-10">
                     <input type="password" id="password" name="j_password" class="form-control" />
+                    </div>
                 </div>
-
-                <input type="submit" value="Submit" class="btn btn-default">
-
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+                		<input type="submit" value="Login" class="btn btn-info">
+					</div>
+				</div>
+				
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            </form>     
+                
+            </form>  <!-- end of form -->   
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

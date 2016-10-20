@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
@@ -39,8 +40,8 @@ public class User {
 	private String address;
 	@NotEmpty
 	private String confirm_password;
-	@NotEmpty
-	private String phone;
+	@NotNull
+	private long phone;
 	
 	
 	public int getId() {
@@ -49,10 +50,10 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getPhone() {
+	public long getPhone() {
 		return phone;
 	}
-	public void setPhone(String phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
 	public String getConfirm_password() {
