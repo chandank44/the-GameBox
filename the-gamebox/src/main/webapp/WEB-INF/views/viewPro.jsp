@@ -7,7 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="<c:url value="/resources/themes/js/controller.js"/>"></script>
 <style>
 #table {margin-top:60px;}
 .card {    
@@ -29,7 +30,7 @@
 </style>
 </head>
 <body>
-<div>
+<div ng-app="cartApp">
 <c:forEach items="${products}" var="c">
 <div class="container col-lg-3 col-md-4 col-sm-6 col-xs-12">
 	<a style="text-decoration:none;display:block;" href="infoproduct/${c.id}" id="info">
@@ -53,8 +54,8 @@
   				<a class="btn btn-sm btn-danger center-block" data-toggle="modal" href="#myModal" style="color:ghostwhite;"><span class="glyphicon glyphicon-trash"></span> Delete</a></div>
   			</c:if>
   			<c:if test="${pageContext.request.userPrincipal.name != 'aladin'}">
-  				<div class="col-xs-12">	
-  				<a class="btn btn-sm btn-primary center-block" href="#" style="color:ghostwhite;"><span class="fa fa-shopping-cart"></span> Add to Cart</a>
+  				<div class="col-xs-12" ng-controller="cartCtrl">
+  				<a class="btn btn-sm btn-primary center-block" ng-click="addToCart('${c.id}')" href="" style="color:ghostwhite;"><span class="fa fa-shopping-cart"></span> Add to Cart</a>  			
   			</c:if>	
   				</div>
   			</div>

@@ -13,6 +13,8 @@
 <title>Navbar</title>
 <link rel="stylesheet" href="<c:url value="/resources/themes/css/indpg.css"/>">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 </head>
 <body>
 
@@ -64,11 +66,12 @@
 					<c:if test="${pageContext.request.userPrincipal.name == 'aladin'}">
 						<li><a class="nav-color" href="addproduct"><span class="fa fa-plus"></span></a></li></c:if>
 					<c:if test="${pageContext.request.userPrincipal.name == null}">
-						<li><a class="nav-color" href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a class="nav-color" href="register"><span class="fa fa-user-o"></span> Sign Up</a></li>
 						<li><a class="nav-color" href="login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li></c:if>
-					<c:if test="${pageContext.request.userPrincipal.name != null}">
-                		<li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
-                		<li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li></c:if>									
+					<c:if test="${pageContext.request.userPrincipal.name != null}">                		
+                		<li><a href="cart/summon" id="log"><span class="fa fa-shopping-cart"></span> Cart</a></li>
+                		<li><a href="<c:url value="/j_spring_security_logout"/>" id="log"><span class="fa fa-sign-out"></span> Logout</a></li>							
+					</c:if>											
 				</ul>
 			
 			</div> <!-- end of collapse -->

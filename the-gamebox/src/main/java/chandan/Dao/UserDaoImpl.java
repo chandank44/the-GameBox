@@ -1,6 +1,9 @@
 package chandan.Dao;
 
-	import org.hibernate.Session;
+	import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
 	import org.hibernate.SessionFactory;
 	import org.slf4j.Logger;
 	import org.slf4j.LoggerFactory;
@@ -18,6 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import chandan.Model.Authorities;
+import chandan.Model.BillingAddress;
+import chandan.Model.Cart;
+import chandan.Model.Product;
 import chandan.Model.User;
 import chandan.Model.UserLogin;
 	
@@ -50,12 +56,26 @@ import chandan.Model.UserLogin;
 		        al.setUsername(p.getName());
 		        al.setAuthority("ROLE_USER");
 		        al.setId(p.getId());
+		        
+		        BillingAddress ba = new BillingAddress();
+		        ba.setBillingaddress(p.getAddress());
+		        ba.setUser(p);
+		        p.setBill(ba);
+		        session.persist(ba);
+		        
+		        Cart cart = new Cart();
+		        cart.setUser(p);
+		        p.setCart(cart);
+		        session.persist(cart);
+		        
 		        session.persist(al);
 		        session.flush();
 		        
 		        
 		        logger.info("Customer saved successfully, Customer Details="+p);
 		    }
+		    
+		    
 		
 	}
 	

@@ -1,5 +1,6 @@
 package chandan.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="User")
@@ -43,7 +46,28 @@ public class User {
 	@NotNull
 	private long phone;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="bid")
+	private BillingAddress bill;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn
+	private Cart cart;
+	
+	
+	
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	public BillingAddress getBill() {
+		return bill;
+	}
+	public void setBill(BillingAddress bill) {
+		this.bill = bill;
+	}
 	public int getId() {
 		return id;
 	}

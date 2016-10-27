@@ -14,6 +14,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,7 +25,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import chandan.Dao.ProductServiceImpl;
+import chandan.Services.CartServiceImpl;
+import chandan.Services.ProductServiceImpl;
 import chandan.Model.Product;
 
 @Controller
@@ -70,6 +73,9 @@ public class ProductController {
 	
 		@Autowired
 		ProductServiceImpl viewService;
+		
+		@Autowired
+		CartServiceImpl cartService;
 	
 		@Qualifier
 		public void setViewService(ProductServiceImpl viewService) {
@@ -79,7 +85,7 @@ public class ProductController {
 		@RequestMapping(value="/viewproduct")
 		public String viewProduct (Model model) {
 		List<Product> productList = viewService.getProduct();
-		model.addAttribute("products",productList);
+		model.addAttribute("products",productList);		
 		return "viewPro";
 		}
 		

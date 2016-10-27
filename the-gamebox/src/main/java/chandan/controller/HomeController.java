@@ -1,10 +1,13 @@
 package chandan.controller;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.context.SecurityContextHolder;
+/*import org.springframework.security.core.userdetails.User;*/
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import chandan.Dao.UserServiceImpl;
-import chandan.Model.Login;
+import chandan.Services.UserServiceImpl;
+
+import chandan.Model.Product;
 import chandan.Model.User;
+
 
 
 
@@ -31,15 +36,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/")
-	public String home(){
+	public String home(Model model){		
 		return "index";
 	}
 	
 	@RequestMapping("/intro")
 	public String hom(){
 		return "registerSuccess";
-	}
-					
+	}					
 
 	@RequestMapping(value="/register",method=RequestMethod.GET)
 	public String form(Model model) {
