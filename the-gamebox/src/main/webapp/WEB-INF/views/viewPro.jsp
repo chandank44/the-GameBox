@@ -30,6 +30,7 @@
 </style>
 </head>
 <body>
+
 <div ng-app="cartApp">
 <c:forEach items="${products}" var="c">
 <div class="container col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -51,37 +52,20 @@
   				<div class="col-xs-6">
   				<a class="btn btn-sm btn-success center-block" href="editproduct/${c.id}" style="color:ghostwhite;"><span class="glyphicon glyphicon-pencil"></span> Edit</a></div>
   				<div class="col-xs-6">
-  				<a class="btn btn-sm btn-danger center-block" data-toggle="modal" href="#myModal" style="color:ghostwhite;"><span class="glyphicon glyphicon-trash"></span> Delete</a></div>
+  					<a class="btn btn-sm btn-danger center-block dropdown-toggle" data-toggle="dropdown" href="" style="color:ghostwhite;"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+  						<ul class="dropdown-menu">
+  							<li class="dropdown-header text-center"> Are you sure?</li>
+  							<li class="text-center"><a href="deleteproduct/${c.id}"><span class="fa fa-check"></span></a></li>
+  							<li class="text-center"><a href=""><span class="fa fa-times"></span></a></li>
+  						</ul>
+  				</div>
   			</c:if>
   			<c:if test="${pageContext.request.userPrincipal.name != 'aladin'}">
   				<div class="col-xs-12" ng-controller="cartCtrl">
   				<a class="btn btn-sm btn-primary center-block" ng-click="addToCart('${c.id}')" href="" style="color:ghostwhite;"><span class="fa fa-shopping-cart"></span> Add to Cart</a>  			
   			</c:if>	
   				</div>
-  			</div>
-  			
-  				<!-- Modal -->
-				<div id="myModal" class="modal fade">
-  					<div class="modal-dialog">
-
-    					<!-- Modal content-->
-    					<div class="modal-content">
-      						<div class="modal-header">
-      							<button type="button" class="close" data-dismiss="modal">&times;</button>
-        						<h4 class="modal-title">Delete</h4>
-      						</div>
-      						<div class="modal-body">
-        						<p>Are you sure you want to delete this item?</p>
-      						</div>
-      						<div class="modal-footer">
-        						<a class="btn btn-danger" href="deleteproduct/${c.id}"><span class="fa fa-check"></span> Yes</a>
-        						<a class="btn btn-success" data-dismiss="modal"><span class="fa fa-times"></span> No</a>
-      						</div>
-    					</div>
-
-  					</div>
-				</div>
-  					
+  			</div>  						
   				
 		</div>
 	</div>

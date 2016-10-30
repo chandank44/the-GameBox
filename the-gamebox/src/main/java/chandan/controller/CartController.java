@@ -1,33 +1,22 @@
 package chandan.controller;
 
 import java.util.List;
-import java.util.Map;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import chandan.Model.Cart;
 import chandan.Model.CartItem;
 import chandan.Model.Product;
-import chandan.Services.CartServiceImpl;
-import chandan.Services.ProductServiceImpl;
-import chandan.Services.UserServiceImpl;
+import chandan.Services.CartService;
+import chandan.Services.ProductService;
+import chandan.Services.UserService;
 
 
 @Controller
@@ -35,13 +24,13 @@ import chandan.Services.UserServiceImpl;
 public class CartController {
 	
 	@Autowired
-	ProductServiceImpl productService;
+	ProductService productService;
 	
 	@Autowired
-	UserServiceImpl userService;
+	UserService userService;
 	
 	@Autowired
-	CartServiceImpl cartService;
+	CartService cartService;
 	
 	@RequestMapping("/{cartid}")
     public @ResponseBody
@@ -121,11 +110,5 @@ public class CartController {
 	public String cc() {
 		return "redirect:/summon";
 	}
-	
-	
-
-
-	
-
 	
 }

@@ -8,14 +8,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,16 +19,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-
-import chandan.Services.CartServiceImpl;
-import chandan.Services.ProductServiceImpl;
+import chandan.Services.CartService;
+import chandan.Services.ProductService;
 import chandan.Model.Product;
+
 
 @Controller
 public class ProductController {
 	
 	@Autowired
-	ProductServiceImpl productService;
+	ProductService productService;
+	
+	@Autowired
+	ProductService viewService;
+	
+	@Autowired
+	CartService cartService;
 	
 	@RequestMapping(value="/addproduct", method=RequestMethod.GET)
 	public String product(@Valid @ModelAttribute ("userProduct") Product userProduct, BindingResult result) {
@@ -68,18 +69,6 @@ public class ProductController {
 			return "addProduct";
 			}
 		return "redirect:/";
-		}
-	
-	
-		@Autowired
-		ProductServiceImpl viewService;
-		
-		@Autowired
-		CartServiceImpl cartService;
-	
-		@Qualifier
-		public void setViewService(ProductServiceImpl viewService) {
-		this.viewService = viewService;
 		}
 	
 		@RequestMapping(value="/viewproduct")

@@ -83,6 +83,8 @@
 				</div>
 			</div>			
 		</div>
+		
+		<a href="order/${cartid}" class="btn btn-success center"><span class="fa fa-shopping-cart"></span> Check out</a>
 				
 		</div>	
 	</div>

@@ -27,7 +27,7 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cartid;
-	private int grandtotal;
+	private double grandtotal;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="id")
@@ -55,12 +55,12 @@ public class Cart {
 		this.cartid = cartid;
 	}
 
-	public int getGrandtotal() {
+	public double getGrandtotal() {
 		return grandtotal;
 	}
 
-	public void setGrandtotal(int grandtotal) {
-		this.grandtotal = grandtotal;
+	public void setGrandtotal(double grandTotal) {
+		this.grandtotal = grandTotal;
 	}
 
 	public User getUser() {
