@@ -1,5 +1,7 @@
 package chandan.Model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +16,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-public class UserLogin {
+public class UserLogin implements Serializable {
 	
 	private String uname;
 	private String pword;

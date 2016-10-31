@@ -35,14 +35,14 @@
 
         	<div class="form-group">
             	<label for="phone">Phone</label>
-            	<form:input path="cart.customer.customerPhone" id="phone" class="form-Control"/>
+            	<form:input path="cart.user.phone" id="phone" class="form-Control"/>
         	</div>
 
         <h3>Billing Address</h3>
 
         	<div class="form-group">
             	<label for="billingaddress"> Address</label>
-            	<form:input path="cart.customer.billingAddress.streetName" id="billing" class="form-Control"/>
+            	<form:input path="cart.user.address" id="billing" class="form-Control"/>
         	</div>        
 
         	<input type="hidden" name="_flowExecutionKey"/>

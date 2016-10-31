@@ -1,5 +1,7 @@
 package chandan.Model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name="Authorities")
-public class Authorities {
+public class Authorities implements Serializable {
 	
 	private String username;
 	private String authority;

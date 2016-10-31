@@ -28,28 +28,32 @@
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="username">Username</label>
 			<div class="col-sm-10">
-			<form:input class="form-control" path="name" placeholder="your name..."/>
+			<form:input class="form-control" path="name" placeholder="your name..." pattern=".{4,15}" required="true"
+			title="Username should contain 4 to 15 characters"/>
 			</div>
 		</div>
 		
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="Password">Password</label>
 			<div class="col-sm-10">
-			<form:password class="form-control" path="password" placeholder="8 characters or more..."/>
+			<form:password class="form-control" path="password" placeholder="8 characters or more..." pattern=".{8,}" required="true"
+			title="Password should be more than 8 characters"/>
 			</div>
 		</div>
 		
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="Password">Confirm Password</label>
 			<div class="col-sm-10">
-			<form:password class="form-control" path="confirm_password" placeholder="8 characters or more..."/>
+			<form:password class="form-control" path="confirm_password" placeholder="8 characters or more..." pattern=".{8,}" required="true"
+			title="Should match the above password"/>
 			</div>
 		</div>
 		
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="E-mail">E-mail</label>
 			<div class="col-sm-10">
-			<form:input class="form-control" path="email" placeholder="example@email.com"/>
+			<form:input class="form-control" path="email" placeholder="example@email.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="true"
+			title="Please enter a valid email"/>
 			</div>
 		</div>
 		
@@ -68,14 +72,15 @@
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="address">Address</label>
 			<div class="col-sm-10">
-			<form:textarea class="form-control" rows="4" path="address" placeholder="where do you stay?"/>
+			<form:textarea class="form-control" rows="4" path="address" placeholder="where do you stay?" required="true"/>
 			</div>
 		</div>
 		
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="phone">Phone No.</label>
 			<div class="col-sm-10">
-			<form:input class="form-control" path="phone" placeholder="your number..."/>
+			<form:input class="form-control" path="phone" placeholder="your number..." pattern="^\d{10}$" required="true"
+			title="Please enter a valid number"/>
 			</div>
 		</div>
 		

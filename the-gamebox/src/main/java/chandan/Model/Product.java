@@ -1,5 +1,7 @@
 package chandan.Model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Table(name="Product")
 
-public class Product {
+public class Product implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

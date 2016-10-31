@@ -27,7 +27,7 @@
 
         	<div class="form-group">
             	<label for="shippingStreet">Street Name</label>
-            	<form:input path="cart.customer.shippingAddress.streetName" id="shippingStreet" class="form-Control"/>
+            	<form:input path="cart.user.address" id="shippingStreet" class="form-Control"/>
         	</div>        
 
         	<input type="hidden" name="_flowExecutionKey"/>

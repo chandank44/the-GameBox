@@ -1,5 +1,7 @@
 package chandan.Model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="User")
-public class User {
+public class User implements Serializable {
 
 	@Id
 	@GenericGenerator(

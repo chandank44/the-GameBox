@@ -39,7 +39,7 @@
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <address>
                                     <strong>Billing Address</strong><br>
-                                        ${order.cart.customer.shippingAddress.streetName}                                    
+                                        ${order.cart.user.address}                                    
                                 </address>
                             </div>
                             
@@ -59,12 +59,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="cartItem" items="${order.Cart.CartItems}" >
+                                <c:forEach var="item" items="${order.cart.items}" >
                                     <tr>
-                                        <td class="col-md-9"><em>${cartItem.product.productName}</em></td>
-                                        <td class="col-md-1" style="text-align: center">${cartItem.quantity}</td>
-                                        <td class="col-md-1" style="text-align: center">${cartItem.product.productPrice}</td>
-                                        <td class="col-md-1" style="text-align: center">${cartItem.totalPrice}</td>
+                                        <td class="col-md-9"><em>${item.product.proname}</em></td>
+                                        <td class="col-md-1" style="text-align: center">${item.quantity}</td>
+                                        <td class="col-md-1" style="text-align: center">${item.product.price}</td>
+                                        <td class="col-md-1" style="text-align: center">${item.totalprice}</td>
                                     </tr>
                                 </c:forEach>
 
@@ -75,7 +75,7 @@
                                         <h4><strong>Grand Total: </strong></h4>
                                     </td>
                                     <td class="text-center text-danger">
-                                        <h4><strong class="fa fa-inr"> ${order.cart.grandTotal}</strong></h4>
+                                        <h4><strong class="fa fa-inr"> ${order.cart.grandtotal}</strong></h4>
                                     </td>
                                 </tr>
                                 </tbody>
